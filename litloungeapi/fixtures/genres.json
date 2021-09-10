@@ -1,0 +1,23 @@
+[
+    {
+        "model": "litloungeapi.genre",
+        "pk": 1,
+        "fields": {
+            "label": "Gothic"
+        }
+    },
+    {
+        "model": "litloungeapi.genre",
+        "pk": 2,
+        "fields": {
+            "label": "Mystery"
+        }
+    },
+    {
+        "model": "litloungeapi.genre",
+        "pk": 3,
+        "fields": {
+            "label": "Western"
+        }
+    }
+]
