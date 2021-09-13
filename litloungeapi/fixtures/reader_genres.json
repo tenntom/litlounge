@@ -1,0 +1,34 @@
+[
+    {
+        "model": "litloungeapi.reader_genre",
+        "pk": 1,
+        "fields": {
+            "reader": 1,
+            "genre": 1
+        }
+    },
+    {
+        "model": "litloungeapi.reader_genre",
+        "pk": 2,
+        "fields": {
+            "reader": 1,
+            "genre": 2
+        }
+    },
+    {
+        "model": "litloungeapi.reader_genre",
+        "pk": 3,
+        "fields": {
+            "reader": 2,
+            "genre": 4
+        }
+    },
+    {
+        "model": "litloungeapi.reader_genre",
+        "pk": 4,
+        "fields": {
+            "reader": 3,
+            "genre": 3
+        }
+    }
+]

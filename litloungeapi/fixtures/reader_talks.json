@@ -1,0 +1,42 @@
+[
+    {
+        "model": "litloungeapi.reader_talk",
+        "pk": 1,
+        "fields": {
+            "reader": 1,
+            "talk": 2
+        }
+    },
+    {
+        "model": "litloungeapi.reader_talk",
+        "pk": 2,
+        "fields": {
+            "reader": 1,
+            "talk": 2
+        }
+    },
+    {
+        "model": "litloungeapi.reader_talk",
+        "pk": 3,
+        "fields": {
+            "reader": 2,
+            "talk": 2
+        }
+    },
+    {
+        "model": "litloungeapi.reader_talk",
+        "pk": 4,
+        "fields": {
+            "reader": 3,
+            "talk": 3
+        }
+    },
+    {
+        "model": "litloungeapi.reader_talk",
+        "pk": 5,
+        "fields": {
+            "reader": 2,
+            "talk": 3
+        }
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "model": "litloungeapi.reader",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "Steve-y boy"
+        }
+    },
+    {
+        "model": "litloungeapi.reader",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "bio": "T-Money, y'all"
+        }
+    },
+    {
+        "model": "litloungeapi.reader",
+        "pk": 3,
+        "fields": {
+            "user": 2,
+            "bio": "I'm famous."
+        }
+    }
+]

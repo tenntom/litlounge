@@ -1,0 +1,41 @@
+[
+    {
+        "model": "litloungeapi.work",
+        "pk": 1,
+        "fields": {
+            "title": "It",
+            "author": "Stephen King",
+            "posted_by": 1,
+            "media_type": 1,
+            "identifier": "978-1501142970",
+            "url_link": "https://www.amazon.com/Novel-Stephen-King/dp/1501142976",
+            "description": "Super scary clown story"
+        }
+    },
+    {
+        "model": "litloungeapi.work",
+        "pk": 2,
+        "fields": {
+            "title": "The Iliad",
+            "author": "Homer",
+            "posted_by": 2,
+            "media_type": 1,
+            "identifier": "978-0140275360",
+            "url_link": "https://www.amazon.com/Iliad-Homer/dp/0140275363/ref=sr_1_4?dchild=1&keywords=iliad&qid=1631561480&s=books&sr=1-4",
+            "description": "Epic story of the Trojan War"
+        }
+    },
+    {
+        "model": "litloungeapi.work",
+        "pk": 3,
+        "fields": {
+            "title": "Short Stories of Edgar Allan Poe",
+            "author": "Edgar Allan Poe",
+            "posted_by": 3,
+            "media_type": 1,
+            "identifier": "978-1453643143",
+            "url_link": "https://www.amazon.com/Edgar-Allan-Poe-Complete-Collection/dp/1453643141",
+            "description": "The original master of the macabre"
+        }
+    }
+]

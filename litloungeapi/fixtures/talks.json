@@ -1,0 +1,47 @@
+[
+    {
+        "model": "litloungeapi.talk",
+        "pk": 1,
+        "fields": {
+            "host": 1,
+            "work": 3,
+            "date": "2021-09-25",
+            "time": "18:00",
+            "description": "I love Steven King",
+            "title": "Power of Memory in It",
+            "sup_materials": "https://stephenking.com/",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword1"
+        }
+    },
+    {
+        "model": "litloungeapi.talk",
+        "pk": 2,
+        "fields": {
+            "host": 2,
+            "work": 2,
+            "date": "2021-10-01",
+            "time": "18:00",
+            "description": "Homer's the man, bro",
+            "title": "Homer's Illiad",
+            "sup_materials": "https://www.sparknotes.com/lit/iliad/summary/",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword2"
+        }
+    },
+    {
+        "model": "litloungeapi.talk",
+        "pk": 3,
+        "fields": {
+            "host": 1,
+            "work": 3,
+            "date": "2021-10-04",
+            "time": "18:00",
+            "description": "Poe is one wild dude",
+            "title": "Poe's classic short stories",
+            "sup_materials": "https://education.seattlepi.com/influence-edgar-allan-poe-american-culture-5573.html",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword3"
+        }
+    }
+]

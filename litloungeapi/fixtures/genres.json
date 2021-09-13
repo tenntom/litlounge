@@ -19,5 +19,19 @@
         "fields": {
             "label": "Western"
         }
+    },
+    {
+        "model": "litloungeapi.genre",
+        "pk": 4,
+        "fields": {
+            "label": "Classics"
+        }
+    },
+    {
+        "model": "litloungeapi.genre",
+        "pk": 5,
+        "fields": {
+            "label": "Horror"
+        }
     }
 ]
