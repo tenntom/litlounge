@@ -10,7 +10,7 @@ class Talk(models.Model):
     sup_materials = models.CharField(max_length=250)
     zoom_meeting_id = models.CharField(max_length=50)
     zoom_meeting_password = models.CharField(max_length=50)
-    participants = models.ManyToManyField("Reader", through="ReaderEvent", related_name="attending")
+    participants = models.ManyToManyField("Reader", through="ReaderTalk", related_name="attending")
 
 
     @property

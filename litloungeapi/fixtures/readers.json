@@ -19,7 +19,7 @@
         "model": "litloungeapi.reader",
         "pk": 3,
         "fields": {
-            "user": 2,
+            "user": 3,
             "bio": "I'm famous."
         }
     }

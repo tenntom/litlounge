@@ -1,6 +1,6 @@
 [
     {
-        "model": "litloungeapi.reader_genre",
+        "model": "litloungeapi.ReaderGenre",
         "pk": 1,
         "fields": {
             "reader": 1,
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "litloungeapi.reader_genre",
+        "model": "litloungeapi.ReaderGenre",
         "pk": 2,
         "fields": {
             "reader": 1,
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "litloungeapi.reader_genre",
+        "model": "litloungeapi.ReaderGenre",
         "pk": 3,
         "fields": {
             "reader": 2,
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "litloungeapi.reader_genre",
+        "model": "litloungeapi.ReaderGenre",
         "pk": 4,
         "fields": {
             "reader": 3,

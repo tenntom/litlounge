@@ -1,20 +1,20 @@
 [
     {
-        "model": "litloungeapi.work_type",
+        "model": "litloungeapi.WorkType",
         "pk": 1,
         "fields": {
             "label": "Book"
         }
     },
     {
-        "model": "litloungeapi.work_type",
+        "model": "litloungeapi.WorkType",
         "pk": 2,
         "fields": {
             "label": "Film"
         }
     },
     {
-        "model": "litloungeapi.work_type",
+        "model": "litloungeapi.WorkType",
         "pk": 3,
         "fields": {
             "label": "Article"

@@ -1,6 +1,6 @@
 [
     {
-        "model": "litloungeapi.work_genre",
+        "model": "litloungeapi.WorkGenre",
         "pk": 1,
         "fields": {
             "work": 1,
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "litloungeapi.work_genre",
+        "model": "litloungeapi.WorkGenre",
         "pk": 2,
         "fields": {
             "work": 2,
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "litloungeapi.work_genre",
+        "model": "litloungeapi.WorkGenre",
         "pk": 3,
         "fields": {
             "work": 3,
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "litloungeapi.work_genre",
+        "model": "litloungeapi.WorkGenre",
         "pk": 4,
         "fields": {
             "work": 3,
