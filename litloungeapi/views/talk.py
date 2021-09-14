@@ -1,4 +1,4 @@
-"""View for informaiton about book talks"""
+"""View for information about book talks"""
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError

@@ -18,11 +18,14 @@ from django.urls import path
 from django.conf.urls import include
 from litloungeapi.views import register_user, login_user, talk
 from rest_framework import routers
-from litloungeapi.views import TalkView, WorkView
+from litloungeapi.views import TalkView, WorkView, Profile, WorkType, Genre
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'talks', TalkView, 'talk')
 router.register(r'works', WorkView, 'work')
+router.register(r'profile', Profile, 'profile')
+router.register(r'worktypes', WorkType, 'worktype')
+router.register(r'genres', Genre, 'genre')
 
 
 urlpatterns = [
