@@ -13,7 +13,7 @@ class GenreView(ViewSet):
     def retrieve(self, request, pk=None):
         try:
             genre = Genre.objects.get(pk=pk)
-            serializer = GenreSerializer(work_type, context={'request': request})
+            serializer = GenreSerializer(genre, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)

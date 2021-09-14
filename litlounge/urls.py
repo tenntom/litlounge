@@ -16,16 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from litloungeapi.views import register_user, login_user, talk
 from rest_framework import routers
-from litloungeapi.views import TalkView, WorkView, Profile, WorkType, Genre
+from litloungeapi.views import TalkView, WorkView, Profile, WorkTypeView, GenreView, register_user, login_user
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'talks', TalkView, 'talk')
 router.register(r'works', WorkView, 'work')
 router.register(r'profile', Profile, 'profile')
-router.register(r'worktypes', WorkType, 'worktype')
-router.register(r'genres', Genre, 'genre')
+router.register(r'worktypes', WorkTypeView, 'worktype')
+router.register(r'genres', GenreView, 'genre')
 
 
 urlpatterns = [

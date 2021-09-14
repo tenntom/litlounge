@@ -1,5 +1,6 @@
 """View for information about book talks"""
 from django.contrib.auth.models import User
+from rest_framework.permissions import DjangoModelPermissions
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework import status
@@ -10,6 +11,9 @@ from rest_framework import serializers
 from litloungeapi.models import Talk, Reader, Work
 
 class TalkView(ViewSet):
+
+    # permission_classes = [ DjangoModelPermissions ]
+    # queryset = Talk.objects.none()    
     
     def create(self, request):
 
@@ -44,7 +48,8 @@ class TalkView(ViewSet):
         try:
             talk= Talk.objects.get(pk=pk)
             serializer = TalkSerializer(talk, context={'request': request})
-            return(serializer)
+            return Response(serializer.data)
+            
         except Exception as ex:
             return HttpResponseServerError(ex)
 
@@ -116,9 +121,10 @@ class WorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Work
         fields = ('id', 'title', 'author', 'work_type', "identifier", "url_link", "description", "posted_by", "genres")
+        depth = 2
 
 class TalkSerializer(serializers.ModelSerializer):
-    host = TalkUserSerializer(many=False)
+    host = TalkReaderSerializer(many=False)
     work = WorkSerializer(many=False)
 
     class Meta:
