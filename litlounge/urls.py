@@ -18,12 +18,15 @@ from django.urls import path
 from django.conf.urls import include
 from litloungeapi.views import register_user, login_user, talk
 from rest_framework import routers
-from litloungeapi.views import TalkView
+from litloungeapi.views import TalkView, WorkView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'talks', TalkView, 'talk')
+router.register(r'works', WorkView, 'work')
+
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('register', register_user),
     path('login', login_user),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),

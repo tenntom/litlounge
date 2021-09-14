@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework import status
-from rest_framework.decorators import action
+#from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
@@ -13,7 +13,7 @@ class TalkView(ViewSet):
     
     def create(self, request):
 
-        """May need to add actions for attendees"""
+        """May need to add actions for participants"""
 
         """Post Operation for new talk"""
         reader = Reader.objects.get(user=request.auth.user)
@@ -88,7 +88,7 @@ class TalkView(ViewSet):
         talks = Talk.objects.all()
 
         for talk in talks:
-            talk.joined = reader in talk.attendees.all()
+            talk.joined = reader in talk.participants.all()
 
         work = self.request.query_params.get("work_id", None)
         if work is not None:
@@ -115,7 +115,7 @@ class TalkReaderSerializer(serializers.ModelSerializer):
 class WorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Work
-        fields = ('id', 'title', 'author', 'media_type', "identifier", "url_link", "description", "post_by", "genres")
+        fields = ('id', 'title', 'author', 'work_type', "identifier", "url_link", "description", "posted_by", "genres")
 
 class TalkSerializer(serializers.ModelSerializer):
     host = TalkUserSerializer(many=False)
@@ -123,4 +123,5 @@ class TalkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Talk
-        fields = ('id', 'host', 'date', 'time', 'description', 'title', 'sup_materials', 'zoom_meeting_id', 'zoom_meeting_password', 'participants')
+        fields = ('id', 'host', 'work', 'date', 'time', 'description', 'title', 'sup_materials', 'zoom_meeting_id', 'zoom_meeting_password', 'participants')
+        depth = 2

@@ -6,4 +6,3 @@ class Reader(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.CharField(max_length=150)
     genres = models.ManyToManyField("Genre", through="ReaderGenre", related_name="interest")
-
