@@ -116,5 +116,5 @@ class WorkSerializer(serializers.ModelSerializer):
     """JSON serializer for Works"""
     class Meta:
         model = Work
-        fields = ('id', 'title', 'Work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')
+        fields = ('id', 'title', 'work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')
         depth = 2
