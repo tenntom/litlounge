@@ -120,11 +120,13 @@ class TalkUserSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'email']
 
 class TalkReaderSerializer(serializers.ModelSerializer):
+    user = TalkUserSerializer(many=False)
     class Meta:
         model = Reader
         fields = ['user', 'bio']
 
 class WorkSerializer(serializers.ModelSerializer):
+    posted_by = TalkReaderSerializer(many=False)
     class Meta:
         model = Work
         fields = ('id', 'title', 'author', 'work_type', "identifier", "url_link", "description", "posted_by", "genres")
