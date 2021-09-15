@@ -2,7 +2,7 @@
 from django.core.exceptions import ValidationError
 from django.http.request import MediaType
 from rest_framework import status
-from rest_framework.permissions import DjangoModelPermissions
+from rest_framework.permissions import DjangoModelPermissions, IsAuthenticated
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -13,9 +13,8 @@ from litloungeapi.models import Work, WorkType, WorkGenre, Reader
 
 class WorkView(ViewSet):
     """Level up Works"""
-    permission_classes = [ DjangoModelPermissions ]
+    permission_classes = [ IsAuthenticated ]
     queryset = Work.objects.none()
-
     def create(self, request):
         """Handle POST operations"""
 
@@ -29,7 +28,7 @@ class WorkView(ViewSet):
         work.url_link = request.data["url_link"]
         work.posted_by = reader
 
-        work_type = WorkType.objects.get(pk=request.data["WorkTypeId"])
+        work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
 
         try:
@@ -64,7 +63,6 @@ class WorkView(ViewSet):
             Response -- Empty body with 204 status code
         """
         #reader = Reader.objects.get(user=request.auth.user)
-        reader = Reader.objects.get(pk=pk)
 
         work = Work.objects.get(pk=pk)
         work.title = request.data["title"]
@@ -72,9 +70,9 @@ class WorkView(ViewSet):
         work.description = request.data["description"]
         work.identifier = request.data["identifier"]
         work.url_link = request.data["url_link"]
-        work.posted_by = reader
+        work.posted_by = Reader.objects.get(pk=work.posted_by.id)
 
-        work_type = WorkType.objects.get(pk=request.data["WorkTypeId"])
+        work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
         work.save()
 
@@ -116,5 +114,5 @@ class WorkSerializer(serializers.ModelSerializer):
     """JSON serializer for Works"""
     class Meta:
         model = Work
-        fields = ('id', 'title', 'work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')
+        fields = ('id', 'title', 'author', 'work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')
         depth = 2
