@@ -7,7 +7,10 @@ class Work(models.Model):
     identifier = models.CharField(max_length=50)
     url_link = models.CharField(max_length=150)
     description = models.TextField()
-    posted_by = models.ForeignKey("Reader", on_delete=models.DO_NOTHING)
-    genres = models.ManyToManyField("Genre", through="WorkGenre", related_name="genre")
+    posted_by = models.ForeignKey("Reader", on_delete=models.CASCADE)
+    genres = models.ManyToManyField("Genre", through="WorkGenre", related_name="works")
 
+    @property
+    def genre_name(self):
+        return self.genre.label
 

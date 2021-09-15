@@ -30,9 +30,13 @@ class WorkView(ViewSet):
 
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
+        
+        genres = request.data["genreIds"]
+        
 
         try:
             work.save()
+            work.genres.set(genres)
             serializer = WorkSerializer(work, context={'request': request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -71,9 +75,14 @@ class WorkView(ViewSet):
         work.identifier = request.data["identifier"]
         work.url_link = request.data["url_link"]
         work.posted_by = Reader.objects.get(pk=work.posted_by.id)
+       
 
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
+
+        genres = request.data["genreIds"]
+        work.genres.set(genres)
+
         work.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
