@@ -27,10 +27,25 @@ class Profile(ViewSet):
         # Manually construct the JSON structure you want in the response
         profile = {}
         profile["reader"] = reader.data
-        profile["events"] = talks.data
+        profile["talks"] = talks.data
 
         return Response(profile)
 
+
+
+class WorkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Work
+        fields = ('title', 'author')
+
+
+class TalkSerializer(serializers.ModelSerializer):
+    work = WorkSerializer(many=False)
+
+    class Meta:
+        model = Talk
+        fields = ('host', 'work', 'date', 'time','title', 'participants')
+        depth = 2
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,26 +59,3 @@ class ReaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reader
         fields = ('user', 'bio')
-
-
-class WorkSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Work
-        fields = ('title', 'author')
-
-
-class EventSerializer(serializers.ModelSerializer):
-    """JSON serializer for events"""
-    work = WorkSerializer(many=False)
-
-    class Meta:
-        model = Talk
-        fields = ('id', 'game', 'description', 'date', 'time')
-
-class TalkSerializer(serializers.ModelSerializer):
-    work = WorkSerializer(many=False)
-
-    class Meta:
-        model = Talk
-        fields = ('id', 'host', 'work', 'date', 'time','title', 'participants')
-        depth = 2
