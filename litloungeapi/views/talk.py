@@ -4,7 +4,7 @@ from rest_framework.permissions import DjangoModelPermissions
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework import status
-#from rest_framework.decorators import action
+from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
@@ -14,6 +14,33 @@ class TalkView(ViewSet):
 
     # permission_classes = [ DjangoModelPermissions ]
     # queryset = Talk.objects.none()    
+
+    @action(methods=['post', 'delete'], detail=True)
+    def signup(self, request, pk=None):
+            reader = Reader.objects.get(user=request.auth.user)
+
+            try:
+                talk =Talk.objects.get(pk=pk) 
+            except Talk.DoesNotExist:
+                    return Response(
+                        {'message': 'Talk does not exist.'},
+                        status=status.HTTP_404_NOT_FOUND
+                    )
+
+            if request.method == "POST":
+                try:
+                    talk.participants.add(reader)
+                    return Response({}, status=status.HTTP_201_CREATED)
+                except Exception as ex:
+                    return Response({'message': ex.args[0]})
+
+            elif request.method == "DELETE":
+                try: 
+                    talk.attendees.remove(reader)
+                    return Response(None, status=status.HTTP_204_NO_CONTENT)
+                except Exception as ex:
+                    return Response({'message': ex.args[0]})
+            
     
     def create(self, request):
 
@@ -27,9 +54,9 @@ class TalkView(ViewSet):
         talk.date = request.data['date']
         talk.time = request.data['time']
         talk.description = request.data['description']
-        talk.sup_materials = request.data['sup_materials']
-        talk.zoom_meeting_id = request.data['zoom_meeting_id']
-        talk.zoom_meeting_password = request.data['zoom_meeting_password']
+        talk.sup_materials = request.data['supMaterials']
+        talk.zoom_meeting_id = request.data['zoomMeetingId']
+        talk.zoom_meeting_password = request.data['zoomMeetingPassword']
         talk.host = reader
 
         work = Work.objects.get(pk=request.data['workId'])
@@ -65,9 +92,9 @@ class TalkView(ViewSet):
         talk.date = request.data['date']
         talk.time = request.data['time']
         talk.description = request.data['description']
-        talk.sup_materials = request.data['sup_materials']
-        talk.zoom_meeting_id = request.data['zoom_meeting_id']
-        talk.zoom_meeting_password = request.data['zoom_meeting_password']
+        talk.sup_materials = request.data['supMaterials']
+        talk.zoom_meeting_id = request.data['zoomMeetingId']
+        talk.zoom_meeting_password = request.data['zoomMeetingPassword']
         talk.host = reader
 
         work = Work.objects.get(pk=request.data['workId'])
@@ -102,7 +129,7 @@ class TalkView(ViewSet):
         for talk in talks:
             talk.joined = reader in talk.participants.all()
 
-        work = self.request.query_params.get("work_id", None)
+        work = self.request.query_params.get("workId", None)
         if work is not None:
             talks = talks.filter(work__id=work)
 
@@ -110,6 +137,9 @@ class TalkView(ViewSet):
             talks, many=True, context={'request': request})
 
         return Response(serializer.data)
+
+
+    
 
 
 """Serializers"""

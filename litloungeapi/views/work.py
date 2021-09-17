@@ -25,13 +25,13 @@ class WorkView(ViewSet):
         work.author = request.data["author"]
         work.description = request.data["description"]
         work.identifier = request.data["identifier"]
-        work.url_link = request.data["url_link"]
+        work.url_link = request.data["urlLink"]
         work.posted_by = reader
 
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
         
-        genres = request.data["genreIds"]
+        genres = request.data["genres"]
         
 
         try:
@@ -73,8 +73,8 @@ class WorkView(ViewSet):
         work.author = request.data["author"]
         work.description = request.data["description"]
         work.identifier = request.data["identifier"]
-        work.url_link = request.data["url_link"]
-        work.posted_by = Reader.objects.get(pk=work.posted_by.id)
+        work.url_link = request.data["urlLink"]
+        # work.posted_by = Reader.objects.get(pk=work.posted_by.id) - do I need this? It shouldn't change.
        
 
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])
