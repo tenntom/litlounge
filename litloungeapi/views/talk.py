@@ -35,8 +35,8 @@ class TalkView(ViewSet):
                     return Response({'message': ex.args[0]})
 
             elif request.method == "DELETE":
-                try: 
-                    talk.attendees.remove(reader)
+                try:
+                    talk.participants.remove(reader)
                     return Response(None, status=status.HTTP_204_NO_CONTENT)
                 except Exception as ex:
                     return Response({'message': ex.args[0]})

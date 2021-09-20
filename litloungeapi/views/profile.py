@@ -24,7 +24,6 @@ class Profile(ViewSet):
         reader = ReaderSerializer(
             reader, many=False, context={'request': request})
 
-        # Manually construct the JSON structure you want in the response
         profile = {}
         profile["reader"] = reader.data
         profile["talks"] = talks.data

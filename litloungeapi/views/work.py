@@ -66,7 +66,6 @@ class WorkView(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        #reader = Reader.objects.get(user=request.auth.user)
 
         work = Work.objects.get(pk=pk)
         work.title = request.data["title"]
@@ -74,7 +73,6 @@ class WorkView(ViewSet):
         work.description = request.data["description"]
         work.identifier = request.data["identifier"]
         work.url_link = request.data["urlLink"]
-        # work.posted_by = Reader.objects.get(pk=work.posted_by.id) - do I need this? It shouldn't change.
        
 
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])

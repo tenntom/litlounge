@@ -19,4 +19,4 @@ class Talk(models.Model):
 
     @joined.setter
     def joined(self, value):
-        self.__joind = value
+        self.__joined = value
