@@ -17,29 +17,29 @@ class TalkView(ViewSet):
 
     @action(methods=['post', 'delete'], detail=True)
     def signup(self, request, pk=None):
-            reader = Reader.objects.get(user=request.auth.user)
+        reader = Reader.objects.get(user=request.auth.user)
 
-            try:
-                talk =Talk.objects.get(pk=pk) 
-            except Talk.DoesNotExist:
-                    return Response(
-                        {'message': 'Talk does not exist.'},
-                        status=status.HTTP_404_NOT_FOUND
+        try:
+            talk =Talk.objects.get(pk=pk) 
+        except Talk.DoesNotExist:
+                return Response(
+                    {'message': 'Talk does not exist.'},
+                    status=status.HTTP_404_NOT_FOUND
                     )
 
-            if request.method == "POST":
-                try:
-                    talk.participants.add(reader)
-                    return Response({}, status=status.HTTP_201_CREATED)
-                except Exception as ex:
-                    return Response({'message': ex.args[0]})
+        if request.method == "POST":
+            try:
+                talk.participants.add(reader)
+                return Response({}, status=status.HTTP_201_CREATED)
+            except Exception as ex:
+                return Response({'message': ex.args[0]})
 
-            elif request.method == "DELETE":
-                try:
-                    talk.participants.remove(reader)
-                    return Response(None, status=status.HTTP_204_NO_CONTENT)
-                except Exception as ex:
-                    return Response({'message': ex.args[0]})
+        elif request.method == "DELETE":
+            try:
+                talk.participants.remove(reader)
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            except Exception as ex:
+                return Response({'message': ex.args[0]})
             
     
     def create(self, request):
@@ -168,5 +168,5 @@ class TalkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Talk
-        fields = ('id', 'host', 'work', 'date', 'time', 'description', 'title', 'sup_materials', 'zoom_meeting_id', 'zoom_meeting_password', 'participants')
+        fields = ('id', 'host', 'work', 'date', 'time', 'description', 'title', 'sup_materials', 'zoom_meeting_id', 'zoom_meeting_password', 'participants', 'joined')
         depth = 2

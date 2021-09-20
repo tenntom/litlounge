@@ -18,15 +18,19 @@ class Profile(ViewSet):
 
         reader = Reader.objects.get(user=request.auth.user)
         talks = Talk.objects.filter(participants=reader)
+        host_talks = Talk.objects.filter(host=reader)
 
         talks = TalkSerializer(
             talks, many=True, context={'request': request})
+        host_talks = TalkSerializer(
+            host_talks, many=True, context={'request': request})
         reader = ReaderSerializer(
             reader, many=False, context={'request': request})
 
         profile = {}
         profile["reader"] = reader.data
         profile["talks"] = talks.data
+        profile["host_talks"] = host_talks.data
 
         return Response(profile)
 
@@ -43,7 +47,7 @@ class TalkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Talk
-        fields = ('host', 'work', 'date', 'time','title', 'participants')
+        fields = ('host', 'work', 'date', 'time','title', 'participants', 'joined')
         depth = 2
 
 class UserSerializer(serializers.ModelSerializer):
