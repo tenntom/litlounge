@@ -78,7 +78,7 @@ class WorkView(ViewSet):
         work_type = WorkType.objects.get(pk=request.data["workTypeId"])
         work.work_type = work_type
 
-        genres = request.data["genreIds"]
+        genres = request.data["genres"]
         work.genres.set(genres)
 
         work.save()
