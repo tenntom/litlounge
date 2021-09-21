@@ -47,7 +47,7 @@ class TalkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Talk
-        fields = ('host', 'work', 'date', 'time','title', 'participants', 'joined')
+        fields = ('id', 'host', 'work', 'date', 'time','title', 'participants', 'joined')
         depth = 2
 
 class UserSerializer(serializers.ModelSerializer):
@@ -61,4 +61,5 @@ class ReaderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reader
-        fields = ('user', 'bio')
+        fields = ('user', 'bio', 'genres')
+        depth = 2

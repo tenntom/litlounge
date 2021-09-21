@@ -62,11 +62,11 @@ class TalkView(ViewSet):
         work = Work.objects.get(pk=request.data['workId'])
         talk.work = work
 
-        participants = request.data['participantIds']
+        # participants = request.data['participantIds']
 
         try:
             talk.save()
-            talk.participants.set(participants)
+            # talk.participants.set(participants)
             serializer = TalkSerializer(talk, context={'request': request})
             return Response(serializer.data)
         except ValidationError as ex:
@@ -100,8 +100,8 @@ class TalkView(ViewSet):
         work = Work.objects.get(pk=request.data['workId'])
         talk.work = work
 
-        participants = request.data['participantIds']
-        talk.participants.set(participants)
+        # participants = request.data['participantIds']
+        # talk.participants.set(participants)
 
         talk.save()
 
