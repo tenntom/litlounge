@@ -39,7 +39,7 @@ class Profile(ViewSet):
 class WorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Work
-        fields = ('title', 'author')
+        fields = ('title', 'author', 'url_link')
 
 
 class TalkSerializer(serializers.ModelSerializer):
@@ -47,7 +47,7 @@ class TalkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Talk
-        fields = ('id', 'host', 'work', 'date', 'time','title', 'participants', 'joined')
+        fields = ('id', 'host', 'work', 'date', 'time','title', 'participants', 'sup_materials', 'zoom_meeting_id', 'zoom_meeting_password', 'joined')
         depth = 2
 
 class UserSerializer(serializers.ModelSerializer):
