@@ -1,4 +1,5 @@
 """View module for handling requests about Works"""
+from litloungeapi.views.profile import ReaderSerializer
 from django.core.exceptions import ValidationError
 from django.http.request import MediaType
 from rest_framework import status
@@ -9,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from litloungeapi.models import Work, WorkType, WorkGenre, Reader
+from django.contrib.auth.models import User
 
 
 class WorkView(ViewSet):
@@ -107,6 +109,7 @@ class WorkView(ViewSet):
         """Handle GET requests to Works resource"""
 
         works = Work.objects.all()
+        # currentUser = Reader.objects.get(user=request.auth.user)
 
         work_type = self.request.query_params.get('type', None)
         if work_type is not None:
@@ -117,8 +120,32 @@ class WorkView(ViewSet):
         return Response(serializer.data)
 
 
+# class WorkUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ['first_name', 'last_name', 'email']
+
+# class WorkReaderSerializer(serializers.ModelSerializer):
+#     user = WorkUserSerializer(many=False)
+#     class Meta:
+#         model = Reader
+#         fields = ['user', 'bio']
+
+# class WorkSerializer(serializers.ModelSerializer):
+#     posted_by = ReaderSerializer(many=False)
+#     class Meta:
+#         model = Work
+#         fields = ('id', 'title', 'author', 'work_type', "identifier", "url_link", "description", "posted_by", "genres")
+#         depth = 2
+
+
+# class ReaderSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Reader
+#         fields = ('id')
+
 class WorkSerializer(serializers.ModelSerializer):
-    """JSON serializer for Works"""
+
     class Meta:
         model = Work
         fields = ('id', 'title', 'author', 'work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')

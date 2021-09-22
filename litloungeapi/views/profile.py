@@ -61,5 +61,5 @@ class ReaderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reader
-        fields = ('user', 'bio', 'genres')
+        fields = ('id', 'user', 'bio', 'genres')
         depth = 2
