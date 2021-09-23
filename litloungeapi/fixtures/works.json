@@ -37,5 +37,44 @@
             "url_link": "https://www.amazon.com/Edgar-Allan-Poe-Complete-Collection/dp/1453643141",
             "description": "The original master of the macabre"
         }
+    },
+    {
+        "model": "litloungeapi.work",
+        "pk": 4,
+        "fields": {
+            "title": "Moonlight Sonata",
+            "author": "Beethoven",
+            "posted_by": 1,
+            "work_type": 2,
+            "identifier": "14",
+            "url_link": "https://youtu.be/4Tr0otuiQuU",
+            "description": "Been working on this for months. Would love some feedback."
+        }
+    },
+    {
+        "model": "litloungeapi.work",
+        "pk": 5,
+        "fields": {
+            "title": "Romeo and Juliet",
+            "author": "Shakespeare",
+            "posted_by": 2,
+            "work_type": 1,
+            "identifier": "978-1453643143",
+            "url_link": "http://www.shakespeare-online.com/plays/romeoscenes.html",
+            "description": "Wrote this recently. Do you think it's too sad?"
+        }
+    },
+    {
+        "model": "litloungeapi.work",
+        "pk": 6,
+        "fields": {
+            "title": "Mona Lisa",
+            "author": "da Vinci",
+            "posted_by": 3,
+            "work_type": 3,
+            "identifier": "No number yet",
+            "url_link": "https://ychef.files.bbci.co.uk/976x549/p096q1j7.jpg",
+            "description": "I like this one, but the eyes are a little weird."
+        }
     }
 ]

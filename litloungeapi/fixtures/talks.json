@@ -4,10 +4,10 @@
         "pk": 1,
         "fields": {
             "host": 1,
-            "work": 3,
+            "work": 1,
             "date": "2021-09-25",
             "time": "18:00",
-            "description": "I love Steven King",
+            "description": "I love Steven King. Anyone want to get togetehr and chat?",
             "title": "Power of Memory in It",
             "sup_materials": "https://stephenking.com/",
             "zoom_meeting_id": "1212121212",
@@ -22,7 +22,7 @@
             "work": 2,
             "date": "2021-10-01",
             "time": "18:00",
-            "description": "Homer's the man, bro",
+            "description": "Homer's the man, bro. Let's chat",
             "title": "Homer's Illiad",
             "sup_materials": "https://www.sparknotes.com/lit/iliad/summary/",
             "zoom_meeting_id": "1212121212",
@@ -33,7 +33,7 @@
         "model": "litloungeapi.talk",
         "pk": 3,
         "fields": {
-            "host": 1,
+            "host": 3,
             "work": 3,
             "date": "2021-10-04",
             "time": "18:00",
@@ -42,6 +42,51 @@
             "sup_materials": "https://education.seattlepi.com/influence-edgar-allan-poe-american-culture-5573.html",
             "zoom_meeting_id": "1212121212",
             "zoom_meeting_password": "zoompassword3"
+        }
+    },
+    {
+        "model": "litloungeapi.talk",
+        "pk": 4,
+        "fields": {
+            "host": 1,
+            "work": 4,
+            "date": "2021-10-05",
+            "time": "18:00",
+            "description": "This is a song I've beeen working on. What do you guys think about it?",
+            "title": "ny new moonlight song",
+            "sup_materials": "https://www.pianotv.net/2017/04/moonlight-sonata-by-beethoven-an-analysis/",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword4"
+        }
+    },
+    {
+        "model": "litloungeapi.talk",
+        "pk": 5,
+        "fields": {
+            "host": 2,
+            "work": 5,
+            "date": "2021-10-06",
+            "time": "18:00",
+            "description": "PI like this story, but I'm worried it's too sad. What do y'all think?",
+            "title": "A sad love story",
+            "sup_materials": "https://www.sparknotes.com/shakespeare/romeojuliet/plot-analysis/",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword5"
+        }
+    },
+    {
+        "model": "litloungeapi.talk",
+        "pk": 6,
+        "fields": {
+            "host": 3,
+            "work": 6,
+            "date": "2021-10-07",
+            "time": "18:00",
+            "description": "PI like this one but worried the eyes are weird. What yo yall think?",
+            "title": "Feedback on this painting",
+            "sup_materials": "https://education.seattlepi.com/influence-edgar-allan-poe-american-culture-5573.html",
+            "zoom_meeting_id": "1212121212",
+            "zoom_meeting_password": "zoompassword6"
         }
     }
 ]

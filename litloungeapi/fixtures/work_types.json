@@ -10,14 +10,14 @@
         "model": "litloungeapi.WorkType",
         "pk": 2,
         "fields": {
-            "label": "Film"
+            "label": "Music"
         }
     },
     {
         "model": "litloungeapi.WorkType",
         "pk": 3,
         "fields": {
-            "label": "Article"
+            "label": "Painting"
         }
     }
 ]

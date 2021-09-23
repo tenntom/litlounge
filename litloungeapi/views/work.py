@@ -8,7 +8,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from litloungeapi.models import Work, WorkType, WorkGenre, Reader
+from litloungeapi.models import Work, WorkType, WorkGenre, Reader, Talk
 
 
 class WorkView(ViewSet):
@@ -108,17 +108,36 @@ class WorkView(ViewSet):
 
         works = Work.objects.all()
 
+
         work_type = self.request.query_params.get('type', None)
         if work_type is not None:
             works = works.filter(work_type__id=work_type)
+ 
+        # for work in works:
+        #     talks=[]
+        #     talks = Talk.objects.filter(work=work)
+            
+        # talks = TalkSerializer(
+        #     talks, many=True, context={'request': request}
+        # )         
+
+        # for work in works:
+        #     work["talks"] = talks.data
 
         serializer = WorkSerializer(
             works, many=True, context={'request': request})
         return Response(serializer.data)
 
 
+class TalkSerializer(serializers.ModelSerializer):  
+
+    class Meta:
+        model = Talk
+        fields = ('date', 'time', 'title')
+
+
 class WorkSerializer(serializers.ModelSerializer):
-    """JSON serializer for Works"""
+    # talks = TalkSerializer(many=True)
     class Meta:
         model = Work
         fields = ('id', 'title', 'author', 'work_type', 'description', 'identifier', 'url_link', 'posted_by', 'genres')

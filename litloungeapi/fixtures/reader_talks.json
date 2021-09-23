@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "reader": 1,
-            "talk": 2
+            "talk": 1
         }
     },
     {
@@ -19,13 +19,101 @@
         "model": "litloungeapi.ReaderTalk",
         "pk": 3,
         "fields": {
+            "reader": 1,
+            "talk": 3
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 4,
+        "fields": {
+            "reader": 1,
+            "talk": 4
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 5,
+        "fields": {
+            "reader": 1,
+            "talk": 5
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 6,
+        "fields": {
+            "reader": 1,
+            "talk": 6
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 7,
+        "fields": {
+            "reader": 2,
+            "talk": 1
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 8,
+        "fields": {
             "reader": 2,
             "talk": 2
         }
     },
     {
         "model": "litloungeapi.ReaderTalk",
-        "pk": 4,
+        "pk": 9,
+        "fields": {
+            "reader": 2,
+            "talk": 3
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 10,
+        "fields": {
+            "reader": 2,
+            "talk": 4
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 11,
+        "fields": {
+            "reader": 2,
+            "talk": 5
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 12,
+        "fields": {
+            "reader": 2,
+            "talk": 6
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 13,
+        "fields": {
+            "reader": 3,
+            "talk": 1
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 14,
+        "fields": {
+            "reader": 3,
+            "talk": 2
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 15,
         "fields": {
             "reader": 3,
             "talk": 3
@@ -33,10 +121,26 @@
     },
     {
         "model": "litloungeapi.ReaderTalk",
-        "pk": 5,
+        "pk": 16,
         "fields": {
-            "reader": 2,
-            "talk": 3
+            "reader": 3,
+            "talk": 4
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 17,
+        "fields": {
+            "reader": 3,
+            "talk": 5
+        }
+    },
+    {
+        "model": "litloungeapi.ReaderTalk",
+        "pk": 18,
+        "fields": {
+            "reader": 3,
+            "talk": 6
         }
     }
 ]
